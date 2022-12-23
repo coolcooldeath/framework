@@ -1,9 +1,13 @@
 <?php
 session_start();
 
-function my_autoloader($class) {
+function myAutoloader($class) {
     $class = str_replace("\\", "/", $class);
     require __DIR__."/$class.php";
 }
+spl_autoload_register("myAutoloader");
 
-spl_autoload_register("my_autoloader");
+use Core\Application;
+use Core\InstanceContainer;
+define('CORE', true);
+$application = InstanceContainer::getInstance(Application::class);
