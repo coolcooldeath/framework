@@ -9,5 +9,5 @@ spl_autoload_register("myAutoloader");
 
 use Core\Application;
 use Core\InstanceContainer;
-
+define('CORE', true);
 $application = InstanceContainer::getInstance(Application::class);
