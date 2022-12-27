@@ -80,7 +80,7 @@ class Dictionary implements Iterator, JsonSerializable, Countable, ArrayAccess
 
     public function offsetGet($offset)
     {
-        return isset($this->$array[$offset]) ? $this->array[$offset] : null;
+        return isset($this->array[$offset]) ? $this->array[$offset] : null;
     }
 
     public function offsetSet($offset, $value)

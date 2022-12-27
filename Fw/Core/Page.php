@@ -49,12 +49,23 @@ class Page
     {
         foreach ($this->properties as $key=>$value){
             if(is_array($value)){
+                if(empty($this->properties[$key]))
+                    $content = str_replace($this->getMacros($key), "", $content);
+                else
                 $content = str_replace($this->getMacros($key), implode($value), $content);
+
             }
-            else
-            $content = str_replace($this->getMacros($key), $value, $content);
+
+            else{
+                if(empty($this->properties[$key]))
+                    $content = str_replace($this->getMacros($key), "", $content);
+                else
+                    $content = str_replace($this->getMacros($key), $value, $content);
+            }
+
 
         }
+
         return $content;
     }
 

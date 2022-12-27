@@ -7,20 +7,23 @@ use Core\Type\Dictionary;
 if(!defined("CORE")){
     die();
 }
-$array = array(
-    "foo" => "bar",
-    "bar" => "foo",
-);
-$dict = new Dictionary($array,false);
+
 $application->header();
 $pager = $application->getPager();
-$pager->addJs('templates/1/script.js');
-$pager->addCss("templates/1/style2.css");
 $pager->addString('<meta charset="UTF-8">');
 $pager->setProperty('H2','История изменения проекта');
 $pager->setProperty('H3','История изменения проекта');
 $pager->setProperty('title','История изменения проекта');
-print_r($dict->getValues());
+$application->includeComponent(
+    'fw:element.list',
+    '1',
+    [
+        "sort" => "id",
+        "limit" => 10,
+        "show_title" => "N"
+    ]
+);
+
 ?>
 <pre>
     -------- 20.12.2022 --------
