@@ -11,16 +11,23 @@ if(!defined("CORE")){
 $application->header();
 $pager = $application->getPager();
 $pager->addString('<meta charset="UTF-8">');
+$pager->addJs("https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js");
+$pager->addCss("https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css");
+$pager->addCss("Fw/templates/1/css/general.css");
+$pager->addCss("Fw/templates/1/css/main-page.css");
 $pager->setProperty('H2','История изменения проекта');
 $pager->setProperty('H3','История изменения проекта');
 $pager->setProperty('title','История изменения проекта');
 $application->includeComponent(
-    'fw:element.list',
-    '1',
+    'fw:input.text',
+    'default',
     [
-        "sort" => "id",
-        "limit" => 10,
-        "show_title" => "N"
+        "type" => "text",
+        "name" => "name",
+        "title" => "Name",
+        "default" => "Enter your name",
+        "div-class" => "div-text",
+        "class" => "input-text"
     ]
 );
 

@@ -12,10 +12,12 @@ class Template
     public  string $path; // путь к файловой структуре шаблона (абсолютный путь)
     public  string $relativePath; // url к файловой структуре шаблона (относительный путь)
     public  string $id; // строковый id шаблона (в нашем случае  default)
+    public $component; // строковый id шаблона (в нашем случае  default)
     public  Application $app;
 
     public function __construct(string $id, Base $component) //В конструкторе мы должны указать жёскую зависимость от компонента
     {
+        $this->component = $component;
         $this->app = InstanceContainer::getInstance(Application::class);
         $this->id = $id;
         $this->relativePath = "/public/framework/Fw" . $component->path . "/templates/" . $this->id;

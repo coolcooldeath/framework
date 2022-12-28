@@ -83,11 +83,6 @@ class Application
 
 
         }
-
-        echo "<pre>";
-        echo print_r($this->componentsArray);
-        echo "</pre>";
-
         $obj = new $this->componentsArray[$component]($component_id, $template, $params, $path);
         $obj->executeComponent();
     }

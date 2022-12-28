@@ -2,5 +2,5 @@
 return
     [
         "db" => ["login" => "coolcooldeath"],
-        "template_id" => "1"
+        "template_id" => "default"
     ];
