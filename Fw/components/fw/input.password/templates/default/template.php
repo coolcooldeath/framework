@@ -14,7 +14,6 @@ $params = $this->component->params;
                 echo $key . "=". "$value ";
             }
         }?>
-
     >
     </br>
 </div>

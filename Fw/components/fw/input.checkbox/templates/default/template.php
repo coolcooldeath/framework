@@ -1,14 +1,15 @@
 <?php
+
 $params = $this->component->params;
 
 ?>
-<div class="<?=$params["div-class"]?>">
-    <p><?=$params['title']?> </p>
+
     <input
             type="<?=$params["type"]?>"
             name = "<?=$params["name"]?>"
             class = "<?=$params["class"]?>"
-            placeholder="<?=$params['default']?>"
+            value = "<?=$params["value"]?>"
+            id = "<?=$params["id"]?>"
         <?php if(isset($params["attr"])) {
             foreach ($params["attr"] as $key=>$value){
                 echo $key . "=". "$value ";
@@ -16,5 +17,4 @@ $params = $this->component->params;
         }?>
 
     >
-    </br>
-</div>
+<span><?=$params['title']?> </span>

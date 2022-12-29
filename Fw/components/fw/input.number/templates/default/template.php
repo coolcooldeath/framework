@@ -8,7 +8,6 @@ $params = $this->component->params;
             type="<?=$params["type"]?>"
             name = "<?=$params["name"]?>"
             class = "<?=$params["class"]?>"
-            placeholder="<?=$params['default']?>"
         <?php if(isset($params["attr"])) {
             foreach ($params["attr"] as $key=>$value){
                 echo $key . "=". "$value ";
