@@ -3,7 +3,7 @@
 $params = $this->component->params;
 
 ?>
-
+<div class="<?=$params["div-class"]?>">
     <input
             type="<?=$params["type"]?>"
             name = "<?=$params["name"]?>"
@@ -17,4 +17,6 @@ $params = $this->component->params;
         }?>
 
     >
-<span><?=$params['title']?> </span>
+    <span><?=$params['title']?> </span>
+</div>
+
