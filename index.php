@@ -4,7 +4,8 @@ require dirname(__DIR__) . '/framework/Fw/init.php';
 if (!defined("CORE")) {
     die();
 }
-
+use \Core\Validation\Email;
+use \Core\Validation\Number;
 $application->header();
 $pager = $application->getPager();
 $pager->addString('<meta charset="UTF-8">');
@@ -15,7 +16,8 @@ $pager->addCss("Fw/templates/1/css/main-page.css");
 $pager->setProperty('H2', 'История изменения проекта');
 $pager->setProperty('H3', 'История изменения проекта');
 $pager->setProperty('title', 'История изменения проекта');
-
+$emailValidator = new Email();
+$numberValidator = new Number();
 //$application->includeComponent(
 //    'fw:input.text.multiple',
 //    'default',
@@ -59,82 +61,6 @@ $pager->setProperty('title', 'История изменения проекта')
 //    ]
 //);
 
-$application->includeComponent(
-    'fw:interface.form',
-    'default',
-    [
-        "elements" => [
-            0 => [
-                "elemType" => 'fw:input.text.multiple',
-                "params" => [
-                    "inputTexts" => [
-                        0 => [
-                            "name" => "name",
-                            "title" => "Name",
-                            "default" => "Name",
-                            "class" => "input-text",
-                            "div-class" => "div-single-text"
-                        ],
-                        1 => [
-                            "name" => "login",
-                            "title" => "Login",
-                            "default" => "Login",
-                            "class" => "input-text",
-                            "div-class" => "div-single-text"],
-                    ],
-                    "title" => "Account Info",
-                    "div-class" => "div-text"
-                ]
-            ],
-            1 => [
-                "elemType" => 'fw:input.password',
-                "params" => [
-                    "default" => "Enter your password",
-                    "type" => "password",
-                    "name" => "password",
-                    "title" => "Password",
-                    "div-class" => "div-text",
-                    "class" => "input-password"
-                ]
-            ],
-            2 => [
-                "elemType" => 'fw:select',
-                "params" => [
-                    "options" => [
-                        0 => [
-                            "title" => "TutBai",
-                            "value" => "tutbai"],
-                        1 => [
-                            "title" => "Onliner",
-                            "value" => "onliner"]
-                    ],
-                    "title" => "Choose server",
-                    "name" => "servers",
-                    "class" => "input-select",
-                    "div-class" => "div-single-select",
-                    "id" => "server_id"
-                ]
-            ],
-
-            3 => [
-                "elemType" => 'fw:input.checkbox',
-                "params" => [
-                        "div-class" =>"div-text",
-                    "type" =>"checkbox",
-                    "class" => "input-checkbox",
-                    "title" => "Login",
-                    "value" => "Login",
-                    "id" => "login_id"
-                ]
-            ],
-
-
-        ],
-        "div-class" => "div-form",
-        'method' => 'post',
-        'action' => '', //url отправки
-    ]
-);
 //
 //$application->includeComponent(
 //    'fw:textarea',
@@ -235,6 +161,83 @@ $application->includeComponent(
 //        "class" => "input-radio"
 //    ]
 //);
+
+$application->includeComponent(
+    'fw:interface.form',
+    'default',
+    [
+        "elements" => [
+            0 => [
+                "elemType" => 'fw:input.text.multiple',
+                "params" => [
+                    "inputTexts" => [
+                        0 => [
+                            "name" => "name",
+                            "title" => "Name",
+                            "default" => "Name",
+                            "class" => "input-text",
+                            "div-class" => "div-single-text"
+                        ],
+                        1 => [
+                            "name" => "login",
+                            "title" => "Login",
+                            "default" => "Login",
+                            "class" => "input-text",
+                            "div-class" => "div-single-text"],
+                    ],
+                    "title" => "Account Info",
+                    "div-class" => "div-text"
+                ]
+            ],
+            1 => [
+                "elemType" => 'fw:input.password',
+                "params" => [
+                    "default" => "Enter your password",
+                    "type" => "password",
+                    "name" => "password",
+                    "title" => "Password",
+                    "div-class" => "div-text",
+                    "class" => "input-password"
+                ]
+            ],
+            2 => [
+                "elemType" => 'fw:select',
+                "params" => [
+                    "options" => [
+                        0 => [
+                            "title" => "TutBai",
+                            "value" => "tutbai"],
+                        1 => [
+                            "title" => "Onliner",
+                            "value" => "onliner"]
+                    ],
+                    "title" => "Choose server",
+                    "name" => "servers",
+                    "class" => "input-select",
+                    "div-class" => "div-single-select",
+                    "id" => "server_id"
+                ]
+            ],
+
+            3 => [
+                "elemType" => 'fw:input.checkbox',
+                "params" => [
+                        "div-class" =>"div-text",
+                    "type" =>"checkbox",
+                    "class" => "input-checkbox",
+                    "title" => "Login",
+                    "value" => "Login",
+                    "id" => "login_id"
+                ]
+            ],
+
+
+        ],
+        "div-class" => "div-form",
+        'method' => 'post',
+        'action' => '', //url отправки
+    ]
+);
 
 
 ?>
