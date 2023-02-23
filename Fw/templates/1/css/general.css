@@ -1,0 +1,29 @@
+html::-webkit-scrollbar {display:none;}
+
+
+html{
+
+    overflow:visible;
+}
+
+a{
+    color:black;
+    text-decoration:none;
+}
+a:hover{
+    color:black;
+    text-decoration:none;
+}
+@-webkit-keyframes fade-in {   0% { opacity: 0.01; }   100% { opacity: 1; }   }
+@-moz-keyframes    fade-in {   0% { opacity: 0.01; }   100% { opacity: 1; }   }
+@-o-keyframes      fade-in {   0% { opacity: 0.01; }   100% { opacity: 1; }   }
+@keyframes         fade-in {   0% { opacity: 0.01; }   100% { opacity: 1; }   }
+
+body {
+    overflow-y:scroll;
+    background-color:black;
+    -webkit-animation: fade-in 2.5s linear; /* Safari 4+ */
+    -moz-animation: fade-in 2.5s linear; /* Fx 5+ */
+    -o-animation: fade-in 2.5s linear; /* Opera 12+ */
+    animation: fade-in 2.5s linear; /* IE 10+, Fx 29+ */
+}

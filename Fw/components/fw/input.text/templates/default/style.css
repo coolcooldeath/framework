@@ -1,0 +1,13 @@
+
+.input-text{
+    color: aliceblue;
+    width: auto;
+    background: black;
+}
+.div-single-text{
+    color: aliceblue;
+    margin-top: 10px;
+    margin-right: 10px;
+    display:inline-block;
+
+}
